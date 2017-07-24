@@ -1,0 +1,69 @@
+
+	<div class="panel panel-default">
+  <div class="panel-heading">Member Entry Form</div>
+  <div class="panel-body">
+  <form class="form-horizontal" (ngSubmit)="addMember()" #addForm="ngForm">
+  <div class="form-group">
+    <label for="mms_name" class="col-sm-2 control-label">Name : </label>
+    <div class="col-sm-9">
+      <input type="text" class="form-control" required [(ngModel)]="model.name" name="name" #name="ngModel">
+      <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+            Name is required
+      </div>  
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="position" class="col-sm-2 control-label">Position : </label>
+    <div class="col-sm-9">
+      <select class="form-control" required [(ngModel)]="model.position" name="position" #position="ngModel">
+        <option>리더</option>
+        <option>부리더</option>
+        <option>멤버</option>
+      </select>
+      <!-- <input type="text" class="form-control" [(ngModel)]="model.position" name="position"> -->
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="team" class="col-sm-2 control-label">Team Name : </label>
+    <div class="col-sm-9">
+      <select class="form-control" [(ngModel)]="model.team" required name="team">
+        <option>친교팀</option>
+        <option>예배팀</option>
+        <option>문화팀</option>
+        <option>회원관리팀</option>
+        <option>선교전도팀</option>
+        <option>새가족팀</option>
+      </select>
+      <!-- <input type="text" class="form-control" [(ngModel)]="model.team" name="team"> -->
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="phone" class="col-sm-2 control-label">Phone : </label>
+    <div class="col-sm-9">
+      <input type="text" class="form-control" [(ngModel)]="model.phone" name="phone" placeholder="123-456-7890">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="birthday" class="col-sm-2 control-label">Birthday : </label>
+    <div class="col-sm-9">
+      <input type="text" class="form-control" [(ngModel)]="model.birthday" name="birthday" placeholder="mm/dd/yyyy">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="email" class="col-sm-2 control-label">Email: </label>
+    <div class="col-sm-9">
+      <input type="text" class="form-control" [(ngModel)]="model.email" name="email">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-8">
+      <button type="submit" class="btn btn-success" [disabled]="!addForm.form.valid">Save</button>
+       <a class="btn btn-info" (click)="goBack()">Cancel</a>
+    </div>
+   
+  </div>
+</form>
+
+  </div>
+</div>

@@ -1,5 +1,11 @@
-/* div {
+div {
     background-color: white;
+}
+td {
+    text-align: center;
+} 
+select {
+    text-align-last: center;
 }
 #left{
     float: left;
@@ -7,4 +13,4 @@
 }
 #right{
    float: left;
-} */
+}

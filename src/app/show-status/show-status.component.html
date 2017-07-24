@@ -1,0 +1,25 @@
+<div>
+	<table class="table table-bordered">
+		<thead>
+		<tr>
+			<td align="center">Team</td>
+			<td align="center">Name</td>
+			<td align="center">Status</td>
+			<td align="center">Remarks</td>
+		</tr>
+		</thead>
+		<tbody>
+			<tr  *ngFor="let remark of remarks">
+			<td align="center">{{remark.team}}</td>
+			<td align="center">{{remark.name}}</td>
+			<td align="center">{{remark.status}}</td>
+			<td align="center">{{remark.remarks}}</td>
+			</tr>
+		</tbody>
+	</table>
+	<div class="form-group">
+		<div style="float: right;">
+			<a class="btn btn-info" (click)="goBack()">Go back</a>
+		</div>
+	</div>
+</div>

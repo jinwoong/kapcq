@@ -1,0 +1,65 @@
+<div [hidden]="submitted">
+    <h3>Attendance 
+        <input class="pull-right" type="date" id="attendanceDate"> 
+    </h3>
+    <form (ngSubmit)="onSubmit()" #attendanceTable="ngForm">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <td>Name</td>
+                    <td>
+                        <select class="form-control" id="team" (change)="filterByTeamName()">
+                            <option>All</option>
+                            <option>새가족팀</option>
+                            <option>선교전도팀</option>
+                            <option>회원관리팀</option>
+                            <option>친교팀</option>
+                            <option>예배팀</option>
+                            <option>문화팀</option>
+                        </select>
+                    </td>
+                    <td>Phone</td>
+                    <td>Status</td>
+                    <!-- <td *ngIf="!isDataAvailable">Status</td> -->
+                    <td>Remarks</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let member of members">
+                    <td>{{member.name}}</td>
+                    <td>{{member.team}}</td>
+                    <td>{{member.phone}}</td>
+                    <td>
+                        <select class="form-control" id="status" [(ngModel)]="member.status" name="status">
+                        <option value="present">Present</option>
+                        <option value="absent">Absent</option>
+                        <option value="unsure">Unsure</option>
+                        </select>        
+                    </td>
+                    <!-- <td *ngIf="!isDataAvailable">
+                        <select class="form-control" id="status" [(ngModel)]="member.status" name="status">
+                        <option value="present">Present</option>
+                        <option value="absent">Absent</option>
+                        <option value="unsure">Unsure</option>
+                        </select>        
+                    </td> -->
+                    <td><input class="form-control" type="text" id="remarks" [(ngModel)]="member.remarks" name="remarks"></td>
+                </tr>
+            </tbody>
+        </table>
+        <button type="submit" class="btn btn-success" [disabled]="!attendanceTable.form.valid" style="float: right;">Submit</button>
+    </form> 
+</div>
+<div [hidden]="!submitted">
+  <h2>You submitted the following:</h2>
+  <div class="row" *ngFor="let member of members">
+    <div class="col-xs-3">Name</div>
+    <div class="col-xs-9  pull-left">{{ member.name }}</div>
+    <div class="col-xs-3">Team</div>
+    <div class="col-xs-9 pull-left">{{ member.team }}</div>
+    <div class="col-xs-3">Status</div>
+    <div class="col-xs-9 pull-left">{{ member.status }}</div>
+  </div>
+  <br>
+  <button class="btn btn-primary" (click)="submitted=false">Edit</button>
+</div>

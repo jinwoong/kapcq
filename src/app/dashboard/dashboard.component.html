@@ -1,0 +1,57 @@
+<script src="../../../node_modules/chart.js/dist/Chart.js"></script>
+<div class = "col-xs-6 no_padding">
+    <div id="some_margin">
+        <h3>Total Members: {{total}}</h3>
+    </div>
+    <div>
+        <h3>Attendance Status</h3>  
+        <h5 align="right"> Select Date: 
+            <input type="date" id="attendanceDate" (change)="getStatusCount()">
+        </h5>
+        <div class="no_border" style="display: block">
+        <canvas baseChart
+                [data]="pieChartData"
+                [labels]="pieChartLabels"
+                [options]="pieChartOptions"
+                [chartType]="pieChartType"
+                (chartHover)="pieChartHovered($event)"
+                (chartClick)="pieChartClicked($event)"></canvas>      
+        </div>
+    </div>
+</div>
+<div class = "col-xs-6 no_padding">
+    <div>
+        <h3>Team Status</h3>
+        <div class="no_border" style="display: block">
+        <canvas baseChart
+                [datasets]="barChartData"
+                [labels]="barChartLabels"
+                [options]="barChartOptions"
+                [legend]="barChartLegend"
+                [chartType]="barChartType"
+                (chartHover)="barChartHovered($event)"
+                (chartClick)="barChartClicked($event)"></canvas>
+        </div>
+    </div>
+    <div>
+        <h3>Attendance Rate</h3>
+        <h5 align="right">Select Period: 
+            <select id="period" name="period" (change)="getAttendanceRate()">
+            <option value=1>1 months</option>
+            <option value=3>3 months</option>
+            <option value=6>6 months</option>
+            <option value=12>1 year</option>
+            </select>  
+        </h5>
+        <div class="no_border" style="display: block;" *ngIf="isLineDataAvailable">
+            <canvas baseChart
+                [data]="lineChartData"
+                [labels]="lineChartLabels"
+                [options]="lineChartOptions"
+                [colors]="lineChartColors"
+                [chartType]="lineChartType"
+                (chartHover)="lineChartHovered($event)"
+                (chartClick)="lineChartClicked($event)"></canvas>
+        </div>
+    </div>
+</div>

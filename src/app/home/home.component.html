@@ -1,0 +1,30 @@
+<div id="clear">
+<h2>
+	Member Management
+	<a class="btn btn-success pull-right"  routerLink="/add">Add a new member</a>
+</h2>
+</div>
+<div>
+	<table class="table table-bordered">
+		<thead>
+		<tr>
+			<td align="center">Name</td>
+			<td align="center">Position</td>
+			<td align="center">Team</td>
+			<td width="275" align="center">Action</td>
+		</tr>
+		</thead>
+		<tbody>
+			<tr  *ngFor="let member of members">
+			<td align="center">{{member.name}}</td>
+			<td align="center">{{member.position}}</td>
+			<td align="center">{{member.team}}</td>
+			<td width="275" align="center"> 
+				<a class="btn btn-info" routerLink="/show/{{member._id}}">Detail</a> 
+				<a class="btn btn-success"  routerLink="/edit/{{member._id}}">Edit</a>
+				<a class="btn btn-danger" (click)="showWarning(member._id, member.name)">Delete</a>
+			</td>
+			</tr>
+		</tbody>
+	</table>
+</div>

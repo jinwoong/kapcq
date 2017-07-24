@@ -1,0 +1,52 @@
+<div class="panel panel-default" >
+  <div class="panel-heading">Member detail Form : You can see the detail information of a member in this page of the MMS Apps.</div>
+  <div class="panel-body">
+    <form class="form-horizontal" *ngIf=member>
+  <div class="form-group">
+    <label for="mms_name" class="col-sm-2 control-label">Member's Full Name : </label>
+    <div class="col-sm-9">
+      <p class="form-control">{{member.name}}</p> 
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="position" class="col-sm-2 control-label">Position : </label>
+    <div class="col-sm-9">
+     <p class="form-control">{{member.position}}</p>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="team" class="col-sm-2 control-label">Team Name : </label>
+    <div class="col-sm-9">
+     <p class="form-control">{{member.team}}</p>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="phone" class="col-sm-2 control-label">Phone: </label>
+    <div class="col-sm-9">
+      <p class="form-control">{{member.phone}}</p>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="birthday" class="col-sm-2 control-label">Birthday: </label>
+    <div class="col-sm-9">
+      <p class="form-control">{{member.birthday}}</p>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="email" class="col-sm-2 control-label">Email: </label>
+    <div class="col-sm-9">
+      <p class="form-control">{{member.email}}</p>
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-8">
+      
+      <a class="btn btn-info" (click)="goBack()">Cancel</a>
+    </div>
+   
+  </div>
+</form>
+
+  </div>
+</div>
