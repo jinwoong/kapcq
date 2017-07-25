@@ -17,7 +17,6 @@
     "@angular/common": "^4.0.0",
     "@angular/compiler": "^4.0.0",
     "@angular/language-service": "^4.0.0",
-    "@angular/cli": "^1.2.3",
     "@angular/compiler-cli": "^4.0.0",
     "@angular/core": "^4.0.0",
     "@angular/forms": "^4.0.0",
@@ -37,6 +36,7 @@
     "typescript": "~2.3.3"
   },
   "devDependencies": {
+    "@angular/cli": "^1.2.4",
     "@types/jasmine": "2.5.45",
     "@types/node": "~6.0.60",
     "codelyzer": "~3.0.1",
