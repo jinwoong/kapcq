@@ -7,9 +7,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="stylesheet" href="https://unpkg.com/bootstrap@3.3.7/dist/css/bootstrap.min.css">
-  <!--<script src="node_modules/chart.js/src/chart.js"></script>-->
-  
-  <!--<link rel="stylesheet" media="screen" href="bower_components/handsontable/dist/handsontable.full.css">-->
+  <script>
+    // See http://www.backalleycoder.com/2016/05/13/sghpa-the-single-page-app-hack-for-github-pages/
+    (function(){
+      var redirect = sessionStorage.redirect;
+      delete sessionStorage.redirect;
+      if (redirect && redirect != location.href) {
+        history.replaceState(null, null, redirect);
+      }
+    })();
+  </script>
 </head>
 <body style="background-color:#f2f2f2;">
   <app-root>Loading...</app-root>
